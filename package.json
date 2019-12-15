@@ -1,0 +1,59 @@
+{
+  "name": "@eggplugin/mysql",
+  "version": "0.9.0",
+  "description": "mysql plugin for egg",
+  "eggPlugin": {
+    "name": "mysql"
+  },
+  "keywords": [
+    "mysql",
+    "database",
+    "egg",
+    "eggPlugin",
+    "egg-plugin"
+  ],
+  "dependencies": {
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.16.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
+    "pkgfiles": "egg-bin pkgfiles",
+    "autod": "autod"
+  },
+  "files": [
+    "config",
+    "agent.js",
+    "lib",
+    "app.js"
+  ],
+  "ci": {
+    "version": "8, 10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuxingZhang/egg-mysql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fuxingZhang/egg-mysql/issues"
+  },
+  "homepage": "https://github.com/fuxingZhang/egg-mysql#readme",
+  "author": "Zhang Fu Xing <502545703@qq.com>",
+  "license": "MIT"
+}
