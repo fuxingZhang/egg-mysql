@@ -63,14 +63,36 @@ exports.mysql = {
 
 Usage:
 
-```js
+single query:
+```js  
 ;(async () => {
-  // you can access to simple database instance by using app.mysql.
+  // you can access to pool instance by using app.mysql
   const pool = app.mysql;
-  const { results, fields } = await pool.query(sql);
-  // more documentation please visit https://github.com/fuxingZhang/mysql-promise
-}).catch(console.error);
-```
+  const { results, fields } = await pool.query('SELECT NOW()');
+  console.log({ results, fields });
+})().catch(console.error);
+```  
+
+check out a client:
+```js  
+;(async () => {
+  // you can access to pool instance by using app.mysql
+  const pool = app.mysql;
+  const client = await pool.getConnection();
+  try {
+    const res = await client.query('SELECT * FROM users WHERE id = ?', [1]);
+    console.log(res.results[0]);
+    const { results, fields } = await client.query('SELECT NOW()');
+    console.log(results, fields);
+  } finally {
+    // Make sure to release the client before any error handling,
+    // just in case the error handling itself throws an error.
+    client.release();
+    // Don't use the connection here, it has been returned to the pool.
+  }
+})().catch(console.error);
+```  
+more documentation please visit https://github.com/fuxingZhang/mysql-promise
 
 ### Multiple instance
 
@@ -84,7 +106,7 @@ exports.mysql = {
     // dateStrings: true
   },
   clients: {
-    // clientId, access the client instance by app.pg.get('clientId')
+    // clientId, access the pool instance by app.mysql.get('clientId')
     db1: {
       user: '',
       host: '',
@@ -112,11 +134,13 @@ Usage:
 
 ```js
 ;(async () => {
+  // you can access the pool instance by app.mysql.get('clientId')
   const pool1 = app.mysql.get('db1'); 
   const pool2 = app.mysql.get('db2'); 
-  // more documentation please visit https://github.com/fuxingZhang/mysql-promise
+  //
 }).catch(console.error);
 ```
+more documentation please visit https://github.com/fuxingZhang/mysql-promise
 
 ## Questions & Suggestions
 
