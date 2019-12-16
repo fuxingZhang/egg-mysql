@@ -1,6 +1,6 @@
 {
   "name": "@eggplugin/mysql",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "mysql plugin for egg",
   "eggPlugin": {
     "name": "mysql"
