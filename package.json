@@ -13,7 +13,7 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "mysql": "^2.17.1"
+    "@node-mysql/mysql": "^0.8.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

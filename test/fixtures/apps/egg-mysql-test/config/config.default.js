@@ -2,9 +2,9 @@
 
 exports.mysql = {
   client: {
-    accessKeyId: '',
-    secretAccessKey: '',
-    endpoint: '',
+    user: 'root',
+    host: 'localhost',
+    password: '123456',
   },
   app: true,
   agent: false,

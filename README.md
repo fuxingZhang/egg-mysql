@@ -1,8 +1,8 @@
 # egg-mysql
 
-[mysql](https://github.com/mysqljs/mysql) plugin for Egg.js
+[mysql](https://github.com/fuxingZhang/mysql-promise) plugin for Egg.js
 
-> NOTE: This plugin just for integrate mysql into Egg.js, more documentation please visit https://github.com/mysqljs/mysql
+> NOTE: This plugin just for integrate mysql into Egg.js, more documentation please visit https://github.com/fuxingZhang/mysql-promise
 
 [![NPM version][npm-image]][npm-url]
 [![build status][travis-image]][travis-url]
@@ -64,9 +64,11 @@ exports.mysql = {
 Usage:
 
 ```js
-(async () => {
+;(async () => {
   // you can access to simple database instance by using app.mysql.
-
+  const pool = app.mysql;
+  const { results, fields } = await pool.query(sql);
+  // more documentation please visit https://github.com/fuxingZhang/mysql-promise
 }).catch(console.error);
 ```
 
@@ -109,10 +111,10 @@ exports.mysql = {
 Usage:
 
 ```js
-(async () => {
-  const db1 = app.mysql.get('db1'); 
-  const db2 = app.mysql.get('db2'); 
-  
+;(async () => {
+  const pool1 = app.mysql.get('db1'); 
+  const pool2 = app.mysql.get('db2'); 
+  // more documentation please visit https://github.com/fuxingZhang/mysql-promise
 }).catch(console.error);
 ```
 

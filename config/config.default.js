@@ -29,14 +29,12 @@ exports.mysql = {
   //   client1: {
   //     user: '',
   //     host: '',
-  //     database: '',
   //     password: ''
   //     // ...
   //   },
   //   client2: {
   //     user: '',
   //     host: '',
-  //     database: '',
   //     password: ''
   //     // ...
   //   },
